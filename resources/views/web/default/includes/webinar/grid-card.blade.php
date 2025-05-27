@@ -21,11 +21,9 @@
 
                     @include('web.default.includes.product_custom_badge', ['itemTarget' => $webinar])
             </div> -->
-
             <a href="{{ $webinar->getUrl() }}">
                 <img src="{{ $webinar->getImage() }}" class="img-cover h-100" alt="{{ $webinar->title }}">
             </a>
-
 
             @if($webinar->checkShowProgress())
             <div class="progress">
@@ -60,7 +58,7 @@
             <span class="d-block font-14">{{ trans('public.in') }} <a href="{{ $webinar->category->getUrl() }}"
                     target="_blank" class="text-decoration-underline">{{ $webinar->category->title }}</a></span>
             @endif
-            <p>{{ strip_tags($webinar->description) }}</p>
+            <p class="text-wrap w-100 text-break">{{ strip_tags($webinar->description) }}</p>
 
             <!-- @include(getTemplate() . '.includes.webinar.rate',['rate' => $webinar->getRate()]) -->
 
@@ -100,10 +98,21 @@
                 <a type="submit" class="btn new-btn rounded-pill w-50 p-1 font-12" href="/login">
                     {{ trans('home.Enrol') }}
                 </a>
+                @php
+                $creator = $webinar->creator ?? null;
+                $isOrganization = $creator && $creator->role_name === 'organization';
+                $organization = $isOrganization ? $creator : ($creator->organization ?? null);
+                @endphp
+
+                @if($organization)
                 <div class="d-flex flex-row justify-content-center align-items-center gap-1">
-                    <span class="text-gray">Google</span>
-                    <img src="/assets/default/img/google.png" alt="google" width="20px" height="20px">
+                    <span class="text-gray text-right font-12">{{ $organization->full_name ?? 'none' }}</span>
+                    <img src="{{ $organization->getAvatar() ?? asset('store/new/default-avatar.svg') }}"
+                        alt="{{ $organization->full_name ?? 'none' }}" width="20px" height="20px">
                 </div>
+                @endif
+
+
             </div>
         </figcaption>
     </figure>

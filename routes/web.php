@@ -57,18 +57,19 @@ Route::get('/emergencyDatabaseUpdate', function () {
 });
 
 Route::group(['namespace' => 'Auth', 'middleware' => ['check_mobile_app','share', 'check_maintenance', 'check_restriction']], function () {
-    Route::get('/login', 'LoginController@showLoginForm');
+    Route::get('company_register', 'LoginController@CompanyRegister')->name('company_register');
     Route::post('/login', 'LoginController@login');
+    Route::get('/login', 'LoginController@showLoginForm')->name('get_login');
     Route::get('/logout', 'LoginController@logout');
-    Route::get('/register', 'RegisterController@showRegistrationForm');
+    Route::get('/register', 'RegisterController@showRegistrationForm')->name('get_register');
     Route::post('/register', 'RegisterController@register');
     Route::post('/register/form-fields', 'RegisterController@getFormFieldsByUserType');
     Route::get('/verification', 'VerificationController@index');
     Route::post('/verification', 'VerificationController@confirmCode');
     Route::get('/verification/resend', 'VerificationController@resendCode');
-    Route::get('/forget-password', 'ForgotPasswordController@showLinkRequestForm');
+    Route::get('/forget-password', 'ForgotPasswordController@showLinkRequestForm')->name('get_forget_password');
     Route::post('/forget-password', 'ForgotPasswordController@forgot');
-    Route::get('reset-password/{token}', 'ResetPasswordController@showResetForm');
+    Route::get('reset-password/{token}', 'ResetPasswordController@showResetForm')->name('get_reset_password');
     Route::post('/reset-password', 'ResetPasswordController@updatePassword');
     Route::get('/google', 'SocialiteController@redirectToGoogle');
     Route::get('/google/callback', 'SocialiteController@handleGoogleCallback');

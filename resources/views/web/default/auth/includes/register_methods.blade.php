@@ -4,7 +4,7 @@
 @endphp
 
 @if($showOtherRegisterMethod)
-    <div class="d-flex align-items-center wizard-custom-radio mb-20">
+    <!-- <div class="d-flex align-items-center wizard-custom-radio mb-20">
         <div class="wizard-custom-radio-item flex-grow-1">
             <input type="radio" name="type" value="email" id="emailType" class="" {{ (($registerMethod == 'email' and empty(old('type'))) or old('type') == "email") ? 'checked' : '' }}>
             <label class="font-12 cursor-pointer px-15 py-10" for="emailType">{{ trans('public.email') }}</label>
@@ -14,7 +14,7 @@
             <input type="radio" name="type" value="mobile" id="mobileType" class="" {{ (($registerMethod == 'mobile' and empty(old('type'))) or old('type') == "mobile") ? 'checked' : '' }}>
             <label class="font-12 cursor-pointer px-15 py-10" for="mobileType">{{ trans('public.mobile') }}</label>
         </div>
-    </div>
+    </div> -->
 
     <div class="js-email-fields form-group {{ (($registerMethod == 'email' and empty(old('type'))) or old('type') == "email") ? '' : 'd-none' }}">
         <label class="input-label" for="email">{{ trans('public.email') }}:</label>

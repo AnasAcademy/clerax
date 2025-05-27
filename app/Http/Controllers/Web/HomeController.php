@@ -350,26 +350,31 @@ class HomeController extends Controller
             }
         }
         $structuredCategories = Category::whereNull('parent_id')
-        ->with([
-            'subCategories' => function ($query) {
-                $query->orderBy('order', 'asc')
-                      ->with(['webinars' => function ($query) {
-                          $query->orderBy('created_at', 'desc');
-                      }]);
-            }
-        ])
-        ->orderBy('order', 'asc')
-        ->get();
-        
-          $latestsubCategories = Category::whereNotNull('parent_id')
             ->with([
-                'webinars' => function ($query) {
-                    $query->orderBy('created_at', 'desc');
+                'subCategories' => function ($query) {
+                    $query->orderBy('order', 'asc')
+                        ->with([
+                            'webinars' => function ($query) {
+                                $query->orderBy('created_at', 'desc')
+                                    ->with(['creator.organization']);
+                            }
+                        ]);
                 }
             ])
             ->orderBy('order', 'asc')
             ->get();
-   $featureSubCategories = Category::whereNotNull('parent_id')
+ 
+        $latestsubCategories = Category::whereNotNull('parent_id')
+            ->with([
+                'webinars' => function ($query) {
+                    $query->orderBy('created_at', 'desc')
+                        ->with(['creator.organization']);
+                }
+            ])
+            ->orderBy('order', 'asc')
+            ->get();
+ 
+        $featureSubCategories = Category::whereNotNull('parent_id')
             ->whereHas('webinars', function ($query) {
                 $query->whereHas('feature', function ($q) {
                     $q->whereIn('page', ['home', 'home_categories'])
@@ -382,11 +387,13 @@ class HomeController extends Controller
                         $q->whereIn('page', ['home', 'home_categories'])
                             ->where('status', 'publish');
                     })
-                        ->orderBy('created_at', 'desc');
+                        ->orderBy('created_at', 'desc')
+                        ->with('creator.organization');
                 }
             ])
             ->orderBy('order', 'asc')
             ->get();
+           
         $data = [
             'pageTitle' => $pageTitle,
             'pageDescription' => $pageDescription,
@@ -424,6 +431,39 @@ class HomeController extends Controller
         ];
 
         return view(getTemplate() . '.pages.home', $data);
+    }
+
+      public function categories()
+    {
+        $user = auth()->user();
+       
+         $featureSubCategories = Category::whereNotNull('parent_id')
+            ->whereHas('webinars', function ($query) {
+                $query->whereHas('feature', function ($q) {
+                    $q->whereIn('page', ['home', 'home_categories'])
+                        ->where('status', 'publish');
+                });
+            })
+            ->with([
+                'webinars' => function ($query) {
+                    $query->whereHas('feature', function ($q) {
+                        $q->whereIn('page', ['home', 'home_categories'])
+                            ->where('status', 'publish');
+                    })
+                        ->orderBy('created_at', 'desc');
+                }
+            ])
+            ->orderBy('order', 'asc')
+            ->get();
+ 
+            $data = [
+           
+            'featureSubCategories' => $featureSubCategories,
+            'user' => $user,
+        ];
+   
+        return view(getTemplate() . '.includes.navbar', $data);
+ 
     }
 
     private function getHomeDefaultStatistics()

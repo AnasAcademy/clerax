@@ -54,7 +54,7 @@
 
                 <div class="row slider-content align-items-center flex-column-reverse flex-md-row">
 
-                        <div class="col-12 col-md-7 col-lg-6 d-flex flex-column align-items-start ">
+                        <div class="col-12 col-md-7 col-lg-6 d-flex flex-column align-items-start mt-20">
                             <h2 class="text-dark font-weight-bold w-75 font-30 gradient-title">
                                 <!-- {{ $heroSectionData['title'] }} -->
                                   <span>طور مهاراتك، وافتح أبوابًا</span>

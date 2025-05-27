@@ -8,7 +8,7 @@
 
 @section('content')
 <section class="course-cover-container {{ empty($activeSpecialOffer) ? 'not-active-special-offer' : '' }}">
-    <img src="{{ $course->getImageCover() }}" class="img-cover course-cover-img" alt="{{ $course->title }}" />
+    <img src="{{asset('store/new/hero-placeholder.svg')}}" class="" alt="{{ $course->title }}" />
 
     <div class="cover-content pt-40">
         <div class="container position-relative">
@@ -22,13 +22,21 @@
 @php
 $percent = $course->getProgress();
 @endphp
-
+@php
+$creator = $course->creator ?? null;
+$isOrganization = $creator && $creator->role_name === 'organization';
+$organization = $isOrganization ? $creator : ($creator->organization ?? null);
+@endphp
 <section
     class="container course-content-section {{ $course->type }} {{ ($hasBought or $percent) ? 'has-progress-bar' : '' }}">
     <div class="row">
         <div class="col-12 col-lg-8">
             <div class="course-content-body user-select-none">
-                <div class="course-body-on-cover text-white">
+                <div class="course-body-on-cover text-dark">
+                    @if($organization)
+                    <img src="{{ $organization->getAvatar() ?? asset('store/new/default-avatar.svg') }}"
+                            alt="{{ 'none' }}" width="20px" height="20px">
+                            @endif
                     <h1 class="font-30 course-title">
                         {{ $course->title }}
                     </h1>
@@ -36,7 +44,7 @@ $percent = $course->getProgress();
                     @if(!empty($course->category))
                     <span class="d-block font-16 mt-10">{{ trans('public.in') }} <a
                             href="{{ $course->category->getUrl() }}" target="_blank"
-                            class="font-weight-500 text-decoration-underline text-white">{{ $course->category->title }}</a></span>
+                            class="font-weight-500 text-decoration-underline text-dark">{{ $course->category->title }}</a></span>
                     @endif
 
                     <div class="d-flex align-items-center">
@@ -51,10 +59,14 @@ $percent = $course->getProgress();
                         </div> -->
 
 
+
+                    @if($organization)
                     <div class="d-flex flex-row justify-content-start align-items-center gap-1 mt-1">
-                        <span class="text-gray">Google</span>
-                        <img src="/assets/default/img/google.png" alt="google" width="20px" height="20px">
+                        <span class="text-dark text-right">{{ $organization->full_name ?? 'none' }}</span>
+                        <img src="{{ $organization->getAvatar() ?? asset('store/new/default-avatar.svg') }}"
+                            alt="{{ 'none' }}" width="20px" height="20px">
                     </div>
+                    @endif
 
                     @if($hasBought or $percent)
 
@@ -88,8 +100,8 @@ $percent = $course->getProgress();
                 @endforeach
                 @endif
 
-                <div class="mt-35">
-                    <ul class="nav nav-tabs bg-secondary rounded-sm p-15 d-flex align-items-center justify-content-between"
+                <div class="mt-50">
+                    <ul class="nav nav-tabs bg-light-gray rounded-sm p-15 d-flex align-items-center justify-content-between"
                         id="tabs-tab" role="tablist">
                         <li class="nav-item">
                             <a class="position-relative font-14 text-dark {{ (empty(request()->get('tab','')) or request()->get('tab','') == 'information') ? 'active' : '' }}"
@@ -403,7 +415,7 @@ $percent = $course->getProgress();
             </a>
             @endif
 
-            @if($course->teacher->offline)
+            <!-- @if($course->teacher->offline)
             <div class="rounded-lg shadow-sm mt-35 d-flex">
                 <div class="offline-icon offline-icon-left d-flex align-items-stretch">
                     <div class="d-flex align-items-center">
@@ -416,7 +428,7 @@ $percent = $course->getProgress();
                     <p class="font-14 font-weight-500 text-gray mt-15">{{ $course->teacher->offline_message }}</p>
                 </div>
             </div>
-            @endif
+            @endif -->
 
             <div class="rounded-lg shadow-sm mt-35 px-25 py-20">
                 <h3 class="sidebar-title font-16 text-cleraxdark font-weight-bold">
@@ -514,19 +526,57 @@ $percent = $course->getProgress();
             </div>
 
             {{-- organization --}}
-            @if($course->creator_id != $course->teacher_id)
+            <!-- @if($course->creator_id != $course->teacher_id)
             @include('web.default.course.sidebar_instructor_profile', ['courseTeacher' => $course->creator])
-            @endif
+            @endif -->
             {{-- teacher --}}
-            @include('web.default.course.sidebar_instructor_profile', ['courseTeacher' => $course->teacher])
+            <!-- @include('web.default.course.sidebar_instructor_profile', ['courseTeacher' => $course->teacher]) -->
 
-            @if($course->webinarPartnerTeacher->count() > 0)
+            <!-- @if($course->webinarPartnerTeacher->count() > 0)
             @foreach($course->webinarPartnerTeacher as $webinarPartnerTeacher)
             @include('web.default.course.sidebar_instructor_profile', ['courseTeacher' =>
             $webinarPartnerTeacher->teacher])
             @endforeach
-            @endif
+            @endif -->
             {{-- ./ teacher --}}
+
+
+            @php
+            $creator = $course->creator ?? null;
+            $isOrganization = $creator && $creator->role_name === 'organization';
+            $organization = $isOrganization ? $creator : ($creator->organization ?? null);
+            @endphp
+
+            @if($organization)
+            <div class="rounded-lg shadow-sm mt-35 p-20 course-teacher-card d-flex align-items-center flex-column">
+
+                {{-- Optional "invited" badge --}}
+                <!--
+    <span class="user-select-none px-15 py-10 bg-gray200 off-label text-gray text-white font-12 rounded-sm ml-auto">
+        {{ trans('public.invited') }}
+    </span>
+    -->
+
+                <div class="teacher-avatar mt-5">
+                    <img src="{{ $organization->getAvatar() ?? asset('store/new/default-avatar.svg') }}"
+                        class="img-cover" alt="{{ $organization->full_name ?? 'organization' }}">
+                </div>
+
+                <h3 class="mt-10 font-16 font-weight-bold text-orange">
+                    {{ $organization->full_name ?? 'organization' }}
+                </h3>
+
+                <span class="mt-5 font-14 font-weight-500 text-gray text-center">
+                    {{ $organization->bio ?? 'description' }}
+                </span>
+
+                <a type="submit" class="btn new-btn rounded-pill mt-20 py-10" href="">
+                    تعرف على الشركة
+                </a>
+            </div>
+            @endif
+
+
 
             {{-- tags --}}
             @if($course->tags->count() > 0)
@@ -540,6 +590,7 @@ $percent = $course->getProgress();
                     @endforeach
                 </div>
             </div>
+
             @endif
             {{-- ads --}}
             @if(!empty($advertisingBannersSidebar) and count($advertisingBannersSidebar))

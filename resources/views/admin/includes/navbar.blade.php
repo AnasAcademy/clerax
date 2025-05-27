@@ -45,6 +45,7 @@
                                    <div class="time text-primary">All rights reserved for Rocket Soft</div>
                                 </div>
                             </a>
+                            
                     </div>
                 </div>
             </li>

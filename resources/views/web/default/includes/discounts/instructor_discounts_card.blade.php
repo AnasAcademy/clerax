@@ -1,4 +1,4 @@
-<div class="instructor-discount-card d-flex align-items-center justify-content-between px-15 rounded-sm bg-gray100 {{ !empty($instructorDiscountClassName) ? $instructorDiscountClassName : '' }}">
+<div class="instructor-discount-card d-flex align-items-center justify-content-between px-15 rounded-sm bg-secondary {{ !empty($instructorDiscountClassName) ? $instructorDiscountClassName : '' }}">
     <div class="d-flex align-items-center">
         <div class="instructor-discount-card__code d-flex-center py-15">
             <span class="font-20 font-weight-bold text-orange mr-5">{{ $discount->code }}</span>

@@ -21,7 +21,7 @@
                             <form action="/upcoming_courses" method="get">
                                 <div class="form-group d-flex align-items-center m-0">
                                     <input type="text" name="search" class="form-control border-0" placeholder="{{ trans('home.slider_search_placeholder') }}"/>
-                                    <button type="submit" class="btn btn-primary rounded-pill">{{ trans('home.find') }}</button>
+                                    <button type="submit" class="btn btn-primary rounded-pill  px-4 py-10">{{ trans('home.find') }}</button>
                                 </div>
                             </form>
                         </div>

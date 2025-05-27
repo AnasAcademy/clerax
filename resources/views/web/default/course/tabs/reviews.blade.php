@@ -1,6 +1,6 @@
 <div class="mt-35">
-    <div class="course-reviews-box row align-items-center">
-        <div class="col-3 text-center">
+    <div class="course-reviews-box d-flex flex-column flex-md-row align-items-center justify-content-start">
+        <div class="text-center col-12 col-md-3">
             <div class="reviews-rate font-36 font-weight-bold text-primary">{{ $course->getRate() }}</div>
 
             <div class="text-center">
@@ -13,33 +13,33 @@
             </div>
         </div>
 
-        <div class="col-9">
-            <div class="d-flex align-items-center">
+        <div class="col-12 col-md-9 mt-20 mt-md-0">
+            <div class="d-flex align-items-center justify-content-between">
                 <div class="progress course-progress rounded-sm">
                     <span class="progress-bar rounded-sm" style="width: {{ $course->reviews->avg('content_quality') / 5 * 100 }}%"></span>
                 </div>
-                <span class="ml-15 font-14 text-gray text-left">{{ trans('product.content_quality') }} ({{ $course->reviews->count() > 0 ? round($course->reviews->avg('content_quality'), 1) : 0 }})</span>
+                <span class="font-14 text-gray text-right  mx-1">{{ trans('product.content_quality') }} ({{ $course->reviews->count() > 0 ? round($course->reviews->avg('content_quality'), 1) : 0 }})</span>
             </div>
 
-            <div class="mt-25 d-flex align-items-center">
+            <div class="mt-25 d-flex align-items-center justify-content-between">
                 <div class="progress course-progress rounded-sm">
                     <span class="progress-bar rounded-sm" style="width: {{ $course->reviews->avg('instructor_skills') / 5 * 100 }}%"></span>
                 </div>
-                <span class="ml-15 font-14 text-gray text-left">{{ trans('product.instructor_skills') }} ({{ $course->reviews->count() > 0 ? round($course->reviews->avg('instructor_skills'), 1) : 0 }})</span>
+                <span class="font-14 text-gray text-right mx-1">{{ trans('product.instructor_skills') }} ({{ $course->reviews->count() > 0 ? round($course->reviews->avg('instructor_skills'), 1) : 0 }})</span>
             </div>
 
-            <div class="mt-25 d-flex align-items-center">
+            <div class="mt-25 d-flex align-items-center justify-content-between">
                 <div class="progress course-progress rounded-sm">
                     <span class="progress-bar rounded-sm" style="width: {{ $course->reviews->avg('purchase_worth') / 5 * 100 }}%"></span>
                 </div>
-                <span class="ml-15 font-14 text-gray text-left">{{ trans('product.purchase_worth') }} ({{ $course->reviews->count() > 0 ? round($course->reviews->avg('purchase_worth'), 1) : 0 }})</span>
+                <span class="font-14 text-gray text-right mx-1">{{ trans('product.purchase_worth') }} ({{ $course->reviews->count() > 0 ? round($course->reviews->avg('purchase_worth'), 1) : 0 }})</span>
             </div>
 
-            <div class="mt-25 d-flex align-items-center">
+            <div class="mt-25 d-flex align-items-center justify-content-between">
                 <div class="progress course-progress rounded-sm">
                     <span class="progress-bar rounded-sm" style="width: {{ $course->reviews->avg('support_quality') / 5 * 100 }}%"></span>
                 </div>
-                <span class="ml-15 font-14 text-gray text-left">{{ trans('product.support_quality') }} ({{ $course->reviews->count() > 0 ? round($course->reviews->avg('support_quality'), 1) : 0 }})</span>
+                <span class="font-14 text-gray text-right mx-1">{{ trans('product.support_quality') }} ({{ $course->reviews->count() > 0 ? round($course->reviews->avg('support_quality'), 1) : 0 }})</span>
             </div>
 
         </div>

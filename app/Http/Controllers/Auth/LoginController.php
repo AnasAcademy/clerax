@@ -46,6 +46,11 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function CompanyRegister(){
+        return view(getTemplate() . '.auth.company_register');
+
+    }
+
     public function showLoginForm()
     {
         $seoSettings = getSeoMetas('login');

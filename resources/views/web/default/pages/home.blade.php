@@ -19,14 +19,14 @@ $steps = [
 'id' => 'step2',
 'title' => 'اختر الدورة التي تناسبك',
 'description' => 'استعرض مكتبة متنوعة من الدورات، واختر ما يلائمك ويتناسب معك.',
-'image' => '/store/new/middle-section.png',
+'image' => '/store/new/step2.png',
 'icon' => '/store/new/card2.png',
 ],
 [
 'id' => 'step3',
 'title' => 'تعلّم وتقدّم بسرعتك الخاصة',
 'description' => 'ابدأ التعلم في أي وقت، واصل دراستك بدون ضغط أو مواعيد.',
-'image' => '/store/new/last-section.png',
+'image' => '/store/new/step3.png',
 'icon' => '/store/new/card3.png',
 ],
 ];
@@ -72,7 +72,7 @@ $faqs = [
 
 <!-- <section class="slider-container  {{ ($heroSection == "2") ? 'slider-hero-section2' : '' }}" @if(empty($heroSectionData['is_video_background'])) style="background-image: url('{{ $heroSectionData['hero_background'] }}')" @endif> -->
 <section
-    class="slider-container bg-info mx-20 mx-lg-80 mb-50 position-relative home-hero-section {{ ($heroSection == "2") ? 'slider-hero-section2' : '' }}"
+    class="slider-container bg-light-gray mx-20 mx-xl-80 mb-50 position-relative home-hero-section {{ ($heroSection == "2") ? 'slider-hero-section2' : '' }}"
     @if(empty($heroSectionData['is_video_background'])) @endif>
 
     @if($heroSection == "1")
@@ -90,7 +90,7 @@ $faqs = [
         @if($heroSection == "2")
         <div class="row slider-content align-items-center hero-section2 flex-column-reverse flex-md-row">
 
-            <div class="col-12 col-md-7 col-lg-6">
+            <div class="col-12 col-md-5 col-lg-6">
                 <h1 class="text-dark font-weight-bold">
                     <!-- {{ $heroSectionData['title'] }} -->
                     المعرفة هي قوتك الحقيقية.
@@ -113,7 +113,7 @@ $faqs = [
                             </form> -->
             </div>
 
-            <div class="col-12 col-md-5 col-lg-6 ">
+            <div class="col-12 col-md-7 col-lg-6 ">
                 <!-- @if(!empty($heroSectionData['has_lottie']) and $heroSectionData['has_lottie'] == "1")
                                 <lottie-player src="{{ $heroSectionData['hero_vector'] }}" background="transparent" speed="1" class="w-100" loop autoplay></lottie-player>
                             @else
@@ -158,6 +158,7 @@ $faqs = [
 
 {{-- Statistics --}}
 @include('web.default.pages.includes.home_statistics')
+
 <section class="home-sections home-sections-swiper container">
     <div>
         <h2 class="section-title">
@@ -242,17 +243,24 @@ $faqs = [
                                         <span class="real">{{ trans('public.free') }}</span>
                                         @endif
                                     </div>
-
                                     <div class="mt-20 d-flex flex-row justify-content-between align-items-center">
                                         <a type="submit" class="btn new-btn rounded-pill w-50 p-1 font-12"
                                             href="/login">
                                             {{ trans('home.Enrol') }}
                                         </a>
+                                        @php
+                                        $creator = $product->creator ?? null;
+                                        $isOrganization = $creator && $creator->role_name === 'organization';
+                                        $organization = $isOrganization ? $creator : ($creator->organization ?? null);
+                                        @endphp
                                         <div class="d-flex flex-row justify-content-center align-items-center gap-1">
-                                            <span class="text-gray">Google</span>
-                                            <img src="/assets/default/img/google.png" alt="google" width="20px"
-                                                height="20px">
+                                            <span class="text-gray text-right font-12">{{ $organization->full_name ?? 'none' }}</span>
+                                            <img src="{{ $organization->avatar ?? asset('store/new//default-avatar.svg') }}"
+                                                alt="organization avatar" width="20px" height="20px"
+                                                style="flex-shrink: 0;">
+
                                         </div>
+
                                     </div>
                                 </div>
                             </figcaption>
@@ -379,10 +387,18 @@ $faqs = [
                                     <a class="btn new-btn rounded-pill w-50 p-1 font-12" href="/login">
                                         {{ trans('home.Enrol') }}
                                     </a>
-                                    <div class="d-flex flex-row justify-content-center align-items-center gap-1">
-                                        <span class="text-gray">Google</span>
-                                        <img src="/assets/default/img/google.png" alt="google" width="20" height="20">
-                                    </div>
+                                    @php
+                                        $creator = $product->creator ?? null;
+                                        $isOrganization = $creator && $creator->role_name === 'organization';
+                                        $organization = $isOrganization ? $creator : ($creator->organization ?? null);
+                                        @endphp
+                                        <div class="d-flex flex-row justify-content-center align-items-center gap-1">
+                                            <span class="text-gray text-right font-12">{{ $organization->full_name ?? 'none' }}</span>
+                                            <img src="{{ $organization->avatar ?? asset('store/new//default-avatar.svg')}}"
+                                                alt="organization avatar" width="20px" height="20px"
+                                                style="flex-shrink: 0;">
+
+                                        </div>
                                 </div>
                             </div>
                         </figcaption>
@@ -431,7 +447,7 @@ $faqs = [
         </div>
 
         <!-- Left: Testimonial Card -->
-        <div class="col-12 col-md-6 mb-4 mb-md-0 p-50 bg-gray100 rounded">
+        <div class="col-12 col-md-6 mb-4 mb-md-0 p-20 p-md-50 bg-gray100 rounded">
             <img id="testimonialImage" src="{{ asset('store/new/testimonial.png') }}" alt="testimonial" class="w-100">
         </div>
     </div>
@@ -515,11 +531,18 @@ $faqs = [
                                     <a class="btn new-btn rounded-pill w-50 p-1 font-12" href="/login">
                                         {{ trans('home.Enrol') }}
                                     </a>
-                                    <div class="d-flex flex-row justify-content-center align-items-center gap-1">
-                                        <span class="text-gray">Google</span>
-                                        <img src="/assets/default/img/google.png" alt="google" width="20px"
-                                            height="20px">
-                                    </div>
+                                   @php
+                                        $creator = $product->creator ?? null;
+                                        $isOrganization = $creator && $creator->role_name === 'organization';
+                                        $organization = $isOrganization ? $creator : ($creator->organization ?? null);
+                                        @endphp
+                                        <div class="d-flex flex-row justify-content-center align-items-center gap-1">
+                                            <span class="text-gray text-right font-12">{{ $organization->full_name ?? 'none' }}</span>
+                                            <img src="{{ $organization->avatar ?? asset('store/new//default-avatar.svg') }}"
+                                                alt="organization avatar" width="20px" height="20px"
+                                                style="flex-shrink: 0;">
+
+                                        </div>
                                 </div>
                             </div>
                         </figcaption>
@@ -1007,7 +1030,7 @@ $faqs = [
 
         <div
             class="row slider-content align-items-center hero-section2 flex-column flex-md-row justify-content-between gap-1">
-            <div class="col-12 col-md-5">
+            <div class="col-12 col-md-5 text-center">
                 <img src="{{asset('store/new/middle-section.png')}}" alt="img" class="last-section-img">
             </div>
 
@@ -1279,7 +1302,7 @@ count($advertisingBanners2))
 
         <div
             class="row slider-content align-items-center hero-section2 flex-column flex-md-row justify-content-between gap-1">
-            <div class="col-12 col-md-5 col-lg-4">
+            <div class="col-12 col-md-5 col-lg-4 d-flex-center">
                 <img src="{{asset('store/new/last-section.png')}}" alt="img" class="last-section-img">
             </div>
 
@@ -1289,7 +1312,7 @@ count($advertisingBanners2))
                     <br>
                     {{ trans('home.more-than-courses2') }}
                 </h2>
-                <a type="submit" class="btn new-btn rounded-pill mt-20 w-lg-25 py-10" href="/login">
+                <a type="submit" class="btn new-btn rounded-pill mt-20 py-10" href="/login">
                     {{ trans('home.login-now') }}
                 </a>
             </div>
@@ -1501,8 +1524,8 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const images = [
         "{{ asset('store/new/testimonial.png') }}",
-        "{{ asset('store/new/hero.png') }}",
-        "{{ asset('store/new/ellipse.png') }}"
+        "{{ asset('store/new/testimonial2.png') }}",
+        "{{ asset('store/new/testimonial3.png') }}"
     ];
 
     let currentIndex = 0;

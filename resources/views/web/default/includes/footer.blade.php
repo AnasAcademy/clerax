@@ -5,9 +5,11 @@ $socials = collect($socials)->sortBy('order')->toArray();
 }
 
 $footerColumns = getFooterColumns();
-@endphp
 
-<footer class="footer bg-dark position-relative user-select-none">
+$array = ['get_login','get_register','get_forget_password','get_reset_password'];
+@endphp
+@if (!in_array(Route::currentRouteName(), $array))
+<footer class="footer position-relative user-select-none" style="background-color: #292929;">
     <!-- <div class="container">
         <div class="row">
             <div class="col-12">
@@ -43,7 +45,7 @@ $footerColumns = getFooterColumns();
     <div class="container py-4">
         <div class="row">
 
-            @foreach($columns as $column)
+            <!-- @foreach($columns as $column)
             <div class="col-6 col-md-3">
                 @if(!empty($footerColumns[$column]))
                 @if(!empty($footerColumns[$column]['title']))
@@ -59,7 +61,7 @@ $footerColumns = getFooterColumns();
             </div>
             @endforeach
 
-        </div>
+        </div> -->
 
         <!-- <div class="mt-40 border-blue py-25 d-flex align-items-center justify-content-between">
             <div class="footer-logo">
@@ -85,13 +87,13 @@ $footerColumns = getFooterColumns();
     @if(getOthersPersonalizationSettings('platform_phone_and_email_position') == 'footer')
     <div class="footer-copyright-card">
         <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between py-15 gap-1">
-            <img src="{{asset('store/new/anasco-bw.png')}}" alt="img">
+            <img src="{{asset('store/new/white-clerax.svg')}}" width="20%" alt="img">
 
             <div class=" text-white w-sm-100 text-center d-flex flex-row justify-content-center align-items-center gap-1">
                 <!-- {{ trans('update.platform_copyright_hint') }} -->
                 جميع الحقوق محفوطة 
-                <span>لصالح مجموعة أنسكو </span>
-                2025
+                <span>لصالح مجموعة Lxera</span>
+                @2025
             </div>
 
             <div class="d-flex align-items-center justify-content-center">
@@ -111,14 +113,15 @@ $footerColumns = getFooterColumns();
                         </div>
                     @endif -->
             </div>
-            <div class="d-flex flex-row justify-content-center justify-content-lg-end align-items-center w-25 gap-1">
+            <!-- <div class="d-flex flex-row justify-content-center justify-content-lg-end align-items-center w-25 gap-1">
                 <img src="{{asset('store/new/extraLogo1.png')}}" alt="extraLogo" class="extraLogo">
                 <img src="{{asset('store/new/extraLogo2.png')}}" alt="extraLogo" class="extraLogo">
                 <img src="{{asset('store/new/extraLogo3.png')}}" alt="extraLogo" class="extraLogo">
 
-            </div>
+            </div> -->
         </div>
     </div>
     @endif
 
 </footer>
+@endif

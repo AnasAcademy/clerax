@@ -41,8 +41,9 @@ class ClassesController extends Controller
             $webinarsQuery = $webinarsQuery->orderBy("{$this->tableName}.created_at", 'desc');
         }
 
-        $webinars = $webinarsQuery->with([
-            'tickets'
+         $webinars = $webinarsQuery->with([
+            'tickets',
+            'creator.organization'
         ])->paginate(6);
 
         $seoSettings = getSeoMetas('classes');

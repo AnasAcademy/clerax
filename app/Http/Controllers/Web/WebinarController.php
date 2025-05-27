@@ -121,6 +121,7 @@ class WebinarController extends Controller
                 },
                 'filterOptions',
                 'category',
+                'creator.organization',
                 'teacher',
                 'reviews' => function ($query) {
                     $query->where('status', 'active');
