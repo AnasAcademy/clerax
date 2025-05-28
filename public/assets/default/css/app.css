@@ -2685,6 +2685,7 @@ a.badge-gray100.focus {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    padding: 20px 0 0;
 }
 .navbar-brand {
     display: inline-block;
@@ -16447,7 +16448,7 @@ p {
     align-content: center;
     align-items: center;
     border-radius: 22px;
-    margin-top: -95px;
+    margin-top: -120px;
 }
 @media (max-width: 1024px) {
     .slider-container,

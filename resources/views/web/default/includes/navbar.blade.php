@@ -171,8 +171,7 @@ $array = ['get_login','get_register','get_forget_password','get_reset_password']
                 </a>
                 @else
                 <li class="dropdown ">
-                    <a href="#" data-toggle="dropdown"
-                        class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                    <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                         <img alt="image" src="{{ $authUser->getAvatar() }}" class="rounded-circle mr-1" width="20%">
                         <div class="d-sm-none d-lg-inline-block">{{ $authUser->full_name }}</div>
                     </a>
@@ -260,7 +259,8 @@ $array = ['get_login','get_register','get_forget_password','get_reset_password']
                         @else
                         <div class="d-sm-inline-block d-lg-none">{{ $authUser->full_name }}</div>
                         <div class="dropdown-divider"></div>
-                        <a href="{{ getAdminPanelUrl() }}/logout" class="dropdown-item has-icon text-danger d-flex d-lg-none">
+                        <a href="{{ getAdminPanelUrl() }}/logout"
+                            class="dropdown-item has-icon text-danger d-flex d-lg-none">
                             <i class="fas fa-sign-out-alt"></i> {{ trans('admin/main.logout') }}
                         </a>
                         @endif
@@ -271,11 +271,15 @@ $array = ['get_login','get_register','get_forget_password','get_reset_password']
                     <a class="navbar-order d-flex align-items-center justify-content-center mr-0 {{ (empty($navBtnUrl) and empty($navBtnText)) ? 'ml-auto' : '' }}"
                         href="/">
                         @if(!empty($generalSettings['logo']))
-                        <img src="{{asset('store/new/cleraxLogo.png')}}" class="img-cover h-auto" width="20%" alt="site logo">
+                        <img src="{{asset('store/new/cleraxLogo.png')}}" class="img-cover h-auto" width="20%"
+                            alt="site logo">
                         @endif
                     </a>
-                    <p class="d-flex flex-row-reverse align-items-center justify-content-end w-100">Powered by<img src="{{asset('store/new/lxera-black.png')}}" class="" width="20%" alt="site logo">
-</p>
+                    <a href="https://lxera.net" target="_blank" rel="noopener"
+                        class="d-flex flex-row-reverse align-items-center justify-content-end w-100 mt-2">
+                        Powered by
+                        <img src="{{ asset('store/new/lxera-black.png') }}" class="mr-5" width="20%" alt="site logo">
+                    </a>
                 </div>
             </div>
 
@@ -284,7 +288,7 @@ $array = ['get_login','get_register','get_forget_password','get_reset_password']
     </nav>
 
     <div class="nav-dropdown-menu d-none bg-white shadow position-absolute border-top pt-30" id="categoryDropdown"
-        style="top: 110px; left:5%; width: 90%; z-index: 1050; min-height: 400px; height: fit-content; border-radius: 22px;">
+        style="top: 145px; left:5%; width: 90%; z-index: 1050; min-height: 400px; height: fit-content; border-radius: 22px;">
         <div class="container">
             <div class="d-flex justify-content-start align-items-start flex-wrap">
 

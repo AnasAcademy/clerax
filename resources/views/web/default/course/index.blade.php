@@ -8,7 +8,7 @@
 
 @section('content')
 <section class="course-cover-container {{ empty($activeSpecialOffer) ? 'not-active-special-offer' : '' }}">
-    <img src="{{asset('store/new/hero-placeholder.svg')}}" class="" alt="{{ $course->title }}" />
+    <img src="{{asset('store/new/hero-placeholder.svg')}}" class="h-100" alt="{{ $course->title }}" />
 
     <div class="cover-content pt-40">
         <div class="container position-relative">
@@ -35,7 +35,7 @@ $organization = $isOrganization ? $creator : ($creator->organization ?? null);
                 <div class="course-body-on-cover text-dark">
                     @if($organization)
                     <img src="{{ $organization->getAvatar() ?? asset('store/new/default-avatar.svg') }}"
-                            alt="{{ 'none' }}" width="20px" height="20px">
+                            alt="{{ 'none' }}" width="10%" height="10%">
                             @endif
                     <h1 class="font-30 course-title">
                         {{ $course->title }}
@@ -61,10 +61,10 @@ $organization = $isOrganization ? $creator : ($creator->organization ?? null);
 
 
                     @if($organization)
-                    <div class="d-flex flex-row justify-content-start align-items-center gap-1 mt-1">
+                    <div class="d-flex flex-row justify-content-start align-items-center mt-1">
                         <span class="text-dark text-right">{{ $organization->full_name ?? 'none' }}</span>
                         <img src="{{ $organization->getAvatar() ?? asset('store/new/default-avatar.svg') }}"
-                            alt="{{ 'none' }}" width="20px" height="20px">
+                            alt="{{ 'none' }}" width="5%" height="5%">
                     </div>
                     @endif
 

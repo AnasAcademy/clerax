@@ -17,7 +17,7 @@
     </div> -->
 
     <div class="js-email-fields form-group {{ (($registerMethod == 'email' and empty(old('type'))) or old('type') == "email") ? '' : 'd-none' }}">
-        <label class="input-label" for="email">{{ trans('public.email') }}:</label>
+        <label class="input-label" for="email">{{ trans('public.email') }}</label>
         <input name="email" type="email" class="form-control @error('email') is-invalid @enderror" id="email"
                value="{{ old('email') }}" aria-describedby="emailHelp">
         @error('email')

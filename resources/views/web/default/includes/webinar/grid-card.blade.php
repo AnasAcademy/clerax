@@ -105,10 +105,10 @@
                 @endphp
 
                 @if($organization)
-                <div class="d-flex flex-row justify-content-center align-items-center gap-1">
+                <div class="align-items-center d-flex flex-row justify-content-end w-100">
                     <span class="text-gray text-right font-12">{{ $organization->full_name ?? 'none' }}</span>
                     <img src="{{ $organization->getAvatar() ?? asset('store/new/default-avatar.svg') }}"
-                        alt="{{ $organization->full_name ?? 'none' }}" width="20px" height="20px">
+                        alt="{{ $organization->full_name ?? 'none' }}" width="15%" height="15%">
                 </div>
                 @endif
 

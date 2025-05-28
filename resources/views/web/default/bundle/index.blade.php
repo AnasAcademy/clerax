@@ -8,7 +8,7 @@
 
 @section('content')
     <section class="course-cover-container {{ empty($activeSpecialOffer) ? 'not-active-special-offer' : '' }}">
-        <img src="{{ $bundle->getImageCover() }}" class="img-cover course-cover-img" alt="{{ $bundle->title }}"/>
+        <img src="{{ $bundle->getImageCover() }}" class="h-auto" alt="{{ $bundle->title }}"/>
 
         <div class="cover-content pt-40">
             <div class="container position-relative">

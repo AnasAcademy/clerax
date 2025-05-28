@@ -31,7 +31,7 @@
 
 
                 <div class="form-group">
-                    <label class="input-label" for="password">{{ trans('auth.password') }}:</label>
+                    <label class="input-label" for="password">{{ trans('auth.password') }}</label>
                     <input name="password" type="password" class="form-control @error('password')  is-invalid @enderror"
                         id="password" aria-describedby="passwordHelp">
 

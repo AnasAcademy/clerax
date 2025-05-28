@@ -253,10 +253,11 @@ $faqs = [
                                         $isOrganization = $creator && $creator->role_name === 'organization';
                                         $organization = $isOrganization ? $creator : ($creator->organization ?? null);
                                         @endphp
-                                        <div class="d-flex flex-row justify-content-center align-items-center gap-1">
-                                            <span class="text-gray text-right font-12">{{ $organization->full_name ?? 'none' }}</span>
+                                        <div class="align-items-center d-flex flex-row justify-content-end w-50">
+                                            <span
+                                                class="text-gray text-right font-12">{{ $organization->full_name ?? 'none' }}</span>
                                             <img src="{{ $organization->avatar ?? asset('store/new//default-avatar.svg') }}"
-                                                alt="organization avatar" width="20px" height="20px"
+                                                alt="organization avatar" width="20%" height="20%"
                                                 style="flex-shrink: 0;">
 
                                         </div>
@@ -388,17 +389,17 @@ $faqs = [
                                         {{ trans('home.Enrol') }}
                                     </a>
                                     @php
-                                        $creator = $product->creator ?? null;
-                                        $isOrganization = $creator && $creator->role_name === 'organization';
-                                        $organization = $isOrganization ? $creator : ($creator->organization ?? null);
-                                        @endphp
-                                        <div class="d-flex flex-row justify-content-center align-items-center gap-1">
-                                            <span class="text-gray text-right font-12">{{ $organization->full_name ?? 'none' }}</span>
-                                            <img src="{{ $organization->avatar ?? asset('store/new//default-avatar.svg')}}"
-                                                alt="organization avatar" width="20px" height="20px"
-                                                style="flex-shrink: 0;">
+                                    $creator = $product->creator ?? null;
+                                    $isOrganization = $creator && $creator->role_name === 'organization';
+                                    $organization = $isOrganization ? $creator : ($creator->organization ?? null);
+                                    @endphp
+                                    <div class="align-items-center d-flex flex-row justify-content-end w-50">
+                                        <span
+                                            class="text-gray text-right font-12">{{ $organization->full_name ?? 'none' }}</span>
+                                        <img src="{{ $organization->avatar ?? asset('store/new//default-avatar.svg')}}"
+                                            alt="organization avatar" width="20%" height="20%" style="flex-shrink: 0;">
 
-                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </figcaption>
@@ -531,18 +532,18 @@ $faqs = [
                                     <a class="btn new-btn rounded-pill w-50 p-1 font-12" href="/login">
                                         {{ trans('home.Enrol') }}
                                     </a>
-                                   @php
-                                        $creator = $product->creator ?? null;
-                                        $isOrganization = $creator && $creator->role_name === 'organization';
-                                        $organization = $isOrganization ? $creator : ($creator->organization ?? null);
-                                        @endphp
-                                        <div class="d-flex flex-row justify-content-center align-items-center gap-1">
-                                            <span class="text-gray text-right font-12">{{ $organization->full_name ?? 'none' }}</span>
-                                            <img src="{{ $organization->avatar ?? asset('store/new//default-avatar.svg') }}"
-                                                alt="organization avatar" width="20px" height="20px"
-                                                style="flex-shrink: 0;">
+                                    @php
+                                    $creator = $product->creator ?? null;
+                                    $isOrganization = $creator && $creator->role_name === 'organization';
+                                    $organization = $isOrganization ? $creator : ($creator->organization ?? null);
+                                    @endphp
+                                    <div class="align-items-center d-flex flex-row justify-content-end w-50">
+                                        <span
+                                            class="text-gray text-right font-12">{{ $organization->full_name ?? 'none' }}</span>
+                                        <img src="{{ $organization->avatar ?? asset('store/new//default-avatar.svg') }}"
+                                            alt="organization avatar" width="20%" height="20%" style="flex-shrink: 0;">
 
-                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </figcaption>
