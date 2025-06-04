@@ -49,7 +49,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\UserLocale::class,
-            \App\Http\Middleware\DebugBar::class,
+            // \App\Http\Middleware\DebugBar::class,
             \Illuminate\Http\Middleware\HandleCors::class,
         ],
         'api' => [

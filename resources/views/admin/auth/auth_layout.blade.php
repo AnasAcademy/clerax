@@ -19,6 +19,20 @@ $generalSettings['rtl_layout'] == 1));
 .login-card {
     padding: 30px 45px 50px 45px;
 }
+.new-btn {
+    background: #d3514a !important;
+    color: #fff !important;
+    border: 1px solid #d3514a !important;
+}
+.new-btn-otline {
+    border: 1px solid #d3514a !important;
+    color: #d3514a !important;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+.text-orange {
+    color: #d3514a !important;
+}
 </style>
 
 <head>

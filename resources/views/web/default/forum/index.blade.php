@@ -15,7 +15,7 @@
                         <form action="/forums/search" method="get">
                             <div class="form-group d-flex align-items-center m-0">
                                 <input type="text" name="search" class="form-control border-0" placeholder="{{ trans('update.search_discussions') }}"/>
-                                <button type="submit" class="btn btn-primary rounded-pill  px-4 py-10">{{ trans('public.search') }}</button>
+                                <button type="submit" class="btn btn-primary  px-4 py-10">{{ trans('public.search') }}</button>
                             </div>
                         </form>
                     </div>

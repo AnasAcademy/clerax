@@ -8,20 +8,20 @@
 
 @section('content')
     <section class="site-top-banner search-top-banner opacity-04 position-relative">
-        <img src="{{ getPageBackgroundSettings('categories') }}" class="img-cover" alt=""/>
+        <img src="{{  asset('store/new/hero-placeholder.png') }}" class="img-cover" alt=""/>
 
         <div class="container h-100">
             <div class="row h-100 align-items-center justify-content-center text-center">
                 <div class="col-12 col-md-9 col-lg-7">
                     <div class="top-search-categories-form">
-                        <h1 class="text-white font-30 mb-15">{{ !empty($category) ? $category->title : $pageTitle }}</h1>
-                        <span class="course-count-badge py-5 px-10 text-white rounded">{{ $webinarsCount }} {{ trans('product.courses') }}</span>
+                        <h1 class="text-orange font-30 mb-15">{{ !empty($category) ? $category->title : $pageTitle }}</h1>
+                        <span class="course-count-badge py-5 px-10 text-dark rounded">{{ $webinarsCount }} {{ trans('product.courses') }}</span>
 
                         <div class="search-input bg-white p-10 flex-grow-1">
                             <form action="/search" method="get">
                                 <div class="form-group d-flex align-items-center m-0">
                                     <input type="text" name="search" class="form-control border-0" placeholder="{{ trans('home.slider_search_placeholder') }}"/>
-                                    <button type="submit" class="btn btn-primary rounded-pill  px-4 py-10">{{ trans('home.find') }}</button>
+                                    <button type="submit" class="btn btn-primary  px-4 py-10">{{ trans('home.find') }}</button>
                                 </div>
                             </form>
                         </div>

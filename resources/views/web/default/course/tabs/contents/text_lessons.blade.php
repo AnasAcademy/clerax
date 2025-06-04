@@ -35,7 +35,7 @@
                 @endif
             @endif
 
-            <span class="font-weight-bold text-secondary font-14 file-title">{{ $textLesson->title }}</span>
+            <span class="font-weight-bold text-orange font-14 file-title">{{ $textLesson->title }}</span>
         </div>
 
         <i class="collapse-chevron-icon" data-feather="chevron-down" height="20" href="#collapseTextLessons{{ !empty($textLesson) ? $textLesson->id :'record' }}" aria-controls="collapseTextLessons{{ !empty($textLesson) ? $textLesson->id :'record' }}" data-parent="#{{ $accordionParent }}" role="button" data-toggle="collapse" aria-expanded="true"></i>

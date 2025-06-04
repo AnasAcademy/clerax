@@ -36,6 +36,7 @@ return [
     'more-than-courses1' => 'they are opportunities for a better future.',
     'login-now' => 'Login Now',
 
+
     'view_all' => 'View All',
     // stats
     'teachers' => 'Instructors',

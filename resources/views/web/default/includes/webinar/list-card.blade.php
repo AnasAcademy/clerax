@@ -78,7 +78,7 @@
             </div>
         </div>
         <div class="d-flex flex-row justify-content-between align-items-center mt-25">
-            <a type="submit" class="btn new-btn rounded-pill p-1 px-2 font-12" href="/login">
+            <a type="submit" class="btn new-btn  p-1 px-2 font-12" href="/login">
                 {{ trans('home.Enrol') }}
             </a>
             @php

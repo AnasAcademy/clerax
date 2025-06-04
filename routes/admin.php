@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 $prefix = getAdminPanelUrlPrefix();
 
+
 Route::group(['prefix' => $prefix, 'namespace' => 'Admin', 'middleware' => ['web', 'admin_locale']], function () use ($prefix) {
 
     // Admin Auth Routes

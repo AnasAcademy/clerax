@@ -2675,6 +2675,11 @@ a.badge-gray100.focus {
     justify-content: space-between;
     padding: 20px;
 }
+@media(max-width: 900px) {
+    .navbar {
+        padding: 30px;
+    }
+}
 .navbar .container,
 .navbar .container-fluid,
 .navbar .container-sm,
@@ -15367,19 +15372,19 @@ p {
     right: 0;
     bottom: 0;
     opacity: 0.5;
-    background-color: #0e0e0e;
+    /* background-color: #0e0e0e; */
 }
 .site-top-banner.opacity-04:after {
     opacity: 0.4;
 }
 @media (max-width: 991px) {
     .site-top-banner {
-        height: 430px;
+        height: 60vh;
     }
 }
 @media (max-width: 767px) {
     .site-top-banner {
-        height: 230px;
+        /* height: 230px; */
     }
 }
 
@@ -16365,13 +16370,13 @@ p {
     transition: all 0.3s ease;
 }
 .custom-pagination li a:hover {
-    background-color: var(--primary);
+    background-color: var(--cleraxprimary);
     color: #ffffff;
     transition: all 0.3s ease;
 }
 .custom-pagination li a.active {
-    border: solid 1px var(--primary);
-    background-color: var(--primary);
+    border: solid 1px var(--cleraxprimary);
+    background-color: var(--cleraxprimary);
     color: #ffffff;
 }
 @media (max-width: 767px) {
@@ -16393,8 +16398,8 @@ p {
     border-radius: 50%;
 }
 .custom-pagination li span.active {
-    border: solid 1px var(--primary);
-    background-color: var(--primary);
+    border: solid 1px var(--cleraxprimary);
+    background-color: var(--cleraxprimary);
     color: #ffffff;
 }
 .custom-pagination li:last-child {
@@ -16407,7 +16412,7 @@ p {
 }
 .custom-pagination .previous,
 .custom-pagination .next {
-    border: solid 1px var(--primary);
+    border: solid 1px var(--cleraxprimary);
 }
 .rtl .custom-pagination .previous,
 .rtl .custom-pagination .next {
@@ -17613,7 +17618,7 @@ p {
 }
 .rtl .webinar-card .webinar-card-body {
     padding: 15px 15px 20px 10px;
-    min-height: 280px;
+    min-height: 205px;
 }
 .webinar-card .webinar-card-body .webinar-price-box .real {
     font-size: 20px;
@@ -17860,7 +17865,7 @@ p {
     margin-top: 35px;
 }
 .course-content-section:not(.has-progress-bar) .instructor-discount-card {
-    margin-top: 75px !important;
+    margin-top: 60px !important;
 }
 @media (max-width: 991px) {
     .course-content-section:not(.has-progress-bar).course,
@@ -18150,7 +18155,7 @@ p {
     min-height: 40px;
     height: 40px;
     max-height: 40px;
-    background-color: var(--primary);
+    background-color: var(--cleraxprimary);
     border-radius: 50%;
 }
 .chapter-icon svg {
@@ -19069,7 +19074,7 @@ p {
 }
 .search-top-banner .top-search-categories-form .search-input {
     margin-top: 70px;
-    border-radius: 38px;
+    border-radius: 8px;
     box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.1);
 }
 @media (max-width: 991px) {
@@ -19324,7 +19329,7 @@ p {
     box-shadow: 0 5px 12px 0 rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
     border: 1px solid #ececec;
-    min-height: 420px;
+    min-height: 300px;
     transition: all 0.5s ease;
 }
 .product-card .image-box {
@@ -20786,17 +20791,17 @@ p {
 .btn-primary:active,
 .btn-primary:focus,
 .btn-primary:not(:disabled):not(.disabled):active {
-    color: var(--primary-btn-color-hover);
-    background-color: var(--primary-hover);
-    border-color: var(--primary-border-hover);
+    color: var(--cleraxprimary);
+    background-color: #fff;
+    border-color: var(--cleraxprimary);
     box-shadow: var(--primary-btn-shadow-hover);
     transition: all 0.3s;
 }
 .btn-primary.disabled,
 .btn-primary:disabled {
     color: var(--primary-btn-color);
-    background-color: var(--primary);
-    border-color: var(--primary-border);
+    background-color:#d67772;
+    border-color: var(--cleraxprimary);
 }
 
 .btn-outline-primary {

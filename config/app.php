@@ -183,7 +183,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
+        // Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -206,7 +206,7 @@ return [
         App\Providers\MinioStorageServiceProvider::class,
         Ssheduardo\Redsys\RedsysServiceProvider::class,
         Jubaer\Zoom\ZoomServiceProvider::class,
-        \Torann\GeoIP\GeoIPServiceProvider::class,
+        // \Torann\GeoIP\GeoIPServiceProvider::class,
         niklasravnsborg\LaravelPdf\PdfServiceProvider::class,
         Kavenegar\Laravel\ServiceProvider::class,
         MoemenGaballah\Msegat\MsegatServiceProvider::class,

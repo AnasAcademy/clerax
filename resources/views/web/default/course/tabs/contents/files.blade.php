@@ -13,7 +13,7 @@
                 </span>
             </span>
 
-            <span class="font-weight-bold text-secondary font-14 file-title">{{ $file->title }}</span>
+            <span class="font-weight-bold text-orange font-14 file-title">{{ $file->title }}</span>
         </div>
 
         <i class="collapse-chevron-icon" data-feather="chevron-down" height="20" href="#collapseFiles{{ !empty($file) ? $file->id :'record' }}" aria-controls="collapseFiles{{ !empty($file) ? $file->id :'record' }}" data-parent="#{{ $accordionParent }}" role="button" data-toggle="collapse" aria-expanded="true"></i>

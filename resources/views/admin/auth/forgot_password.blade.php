@@ -6,7 +6,7 @@
     @endphp
 
     <div class="p-4 m-3">
-        <img src="{{ $siteGeneralSettings['logo'] ?? '' }}" alt="logo" width="40%" class="mb-5 mt-2">
+        <img src="{{ asset('store/new/cleraxLogo.png')}}" alt="logo" width="40%" class="mb-5 mt-2">
 
         <h4>{{ trans('auth.forget_password') }}</h4>
 
@@ -31,7 +31,7 @@
                 @include('admin.includes.captcha_input')
             @endif
 
-            <button type="submit" class="btn btn-primary btn-block mt-20">{{ trans('auth.reset_password') }}</button>
+            <button type="submit" class="btn new-btn btn-block mt-20 py-10">{{ trans('auth.reset_password') }}</button>
         </form>
 
         <div class="text-center mt-3">
@@ -39,8 +39,8 @@
         </div>
 
         <div class="text-center mt-20">
-            <span class="text-secondary">
-                <a href="{{ getAdminPanelUrl() }}/login" class="font-weight-bold">{{ trans('auth.login') }}</a>
+            <span class="text-orange">
+                <a href="{{ getAdminPanelUrl() }}/login" class="font-weight-bold text-orange">{{ trans('auth.login') }}</a>
             </span>
         </div>
     </div>

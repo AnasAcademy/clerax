@@ -1,6 +1,8 @@
 @push('styles_top')
     <link rel="stylesheet" href="/assets/vendors/leaflet/leaflet.css">
 @endpush
+@php
+@endphp
 
 <div class="tab-pane mt-3 fade" id="meetingSettings" role="tabpanel" aria-labelledby="meetingSettings-tab">
     <div class="row">
@@ -85,16 +87,8 @@
 
                             <select name="country_id" class="form-control " {{ empty($countries) ? 'disabled' : '' }}>
                                 <option value="">{{ trans('update.select_country') }}</option>
-
-                                @if(!empty($countries))
-                                    @foreach($countries as $country)
-                                        @php
-                                            $country->geo_center = \Geo::get_geo_array($country->geo_center);
-                                        @endphp
-
-                                        <option value="{{ $country->id }}" data-center="{{ implode(',', $country->geo_center) }}" {{ (($user->country_id == $country->id) or old('country_id') == $country->id) ? 'selected' : '' }}>{{ $country->title }}</option>
-                                    @endforeach
-                                @endif
+                                
+                                
                             </select>
                         </div>
 
@@ -105,6 +99,7 @@
                                 <option value="">{{ trans('update.select_province') }}</option>
 
                                 @if(!empty($provinces))
+                                
                                     @foreach($provinces as $province)
                                         @php
                                             $province->geo_center = \Geo::get_geo_array($province->geo_center);

@@ -237,9 +237,12 @@ Route::group(['namespace' => 'Web', 'middleware' => ['check_mobile_app', 'impers
         Route::get('/{type}/{tag}', 'TagsController@index');
     });
 
-    Route::group(['prefix' => 'categories'], function () {
+     Route::group(['prefix' => 'categories'], function () {
+        Route::get('/','CategoriesController@index_2');
+        Route::get('/{slug}', 'CategoriesController@show')->name('category.slug');
         Route::get('/{categoryTitle}/{subCategoryTitle?}', 'CategoriesController@index');
     });
+
 
     Route::get('/classes', 'ClassesController@index');
 

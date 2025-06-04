@@ -185,7 +185,7 @@ $array = ['get_login','get_register','get_forget_password','get_reset_password']
             </div>
 
             <div
-                class="d-flex flex-row-reverse flex-lg-row justify-content-between align-items-center gap-3 w-100 px-20  px-lg-0">
+                class="d-flex flex-row-reverse flex-lg-row justify-content-between align-items-center gap-3 w-100  px-lg-0">
 
 
 
@@ -294,7 +294,7 @@ $array = ['get_login','get_register','get_forget_password','get_reset_password']
 
                 {{-- Column 1: Explore Categories --}}
                 <div class="mb-4 col-12 col-md-3">
-                    <h6 class="fw-bold text-orange mb-20">Explore Categories</h6>
+                    <a href="/categories" class="font-weight-bold text-orange mb-20">Explore Categories</a>
                     @foreach($categories as $category)
                     <a href="{{ $category->getUrl() }}" class="text-dark text-decoration-none d-block fw-medium">
                         {{ $category->title }}

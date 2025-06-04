@@ -11,7 +11,7 @@
                 <i data-feather="feather" width="20" height="20" class="text-gray"></i>
             </span>
 
-            <span class="font-weight-bold text-secondary font-14 file-title">{{ $assignment->title }}</span>
+            <span class="font-weight-bold text-orange font-14 file-title">{{ $assignment->title }}</span>
         </div>
 
         <i class="collapse-chevron-icon" data-feather="chevron-down" height="20" href="#collapseAssignment{{ !empty($assignment) ? $assignment->id :'record' }}" aria-controls="collapseAssignment{{ !empty($assignment) ? $assignment->id :'record' }}" data-parent="#{{ $accordionParent }}" role="button" data-toggle="collapse" aria-expanded="true"></i>

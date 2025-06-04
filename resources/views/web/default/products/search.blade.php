@@ -15,7 +15,7 @@
                             <form action="{{ (!empty($isRewardProducts) and $isRewardProducts) ? '/reward-products' : '/products' }}" method="get">
                                 <div class="form-group d-flex align-items-center m-0">
                                     <input type="text" name="search" class="form-control border-0" value="{{ request()->get('search') }}" placeholder="{{ trans('update.products_search_placeholder') }}"/>
-                                    <button type="submit" class="btn btn-primary rounded-pill  px-4 py-10">{{ trans('home.find') }}</button>
+                                    <button type="submit" class="btn btn-primary  px-4 py-10">{{ trans('home.find') }}</button>
                                 </div>
                             </form>
                         </div>

@@ -91,10 +91,10 @@
                             <!-- <form action="/search" method="get" class="d-inline-flex mt-30 mt-lg-30 w-100">
                                 <div class="form-group d-flex align-items-center m-0 slider-search p-10 bg-white w-100">
                                     <input type="text" name="search" class="form-control border-0 mr-lg-50" placeholder="{{ trans('home.slider_search_placeholder') }}"/>
-                                    <button type="submit" class="btn btn-primary rounded-pill">{{ trans('home.find') }}</button>
+                                    <button type="submit" class="btn btn-primary ">{{ trans('home.find') }}</button>
                                 </div>
                             </form> -->
-                            <button type="submit" class="btn new-btn rounded-pill mt-20 w-lg-50 py-10 px-2">
+                            <button type="submit" class="btn new-btn  mt-20 w-lg-50 py-10 px-2">
                                 <!-- {{ trans('home.find') }} -->
                                <a> مهاراتك تستحق أن تتطور — ابدأ الآن</a>
                             </button>

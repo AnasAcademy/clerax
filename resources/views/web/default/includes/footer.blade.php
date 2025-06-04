@@ -42,7 +42,7 @@ $array = ['get_login','get_register','get_forget_password','get_reset_password']
     $columns = ['first_column','second_column','third_column','forth_column'];
     @endphp
 
-    <div class="container py-4">
+    <div class=" py-4">
         <div class="row">
 
             <!-- @foreach($columns as $column)
@@ -86,7 +86,7 @@ $array = ['get_login','get_register','get_forget_password','get_reset_password']
 
     @if(getOthersPersonalizationSettings('platform_phone_and_email_position') == 'footer')
     <div class="footer-copyright-card">
-        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between py-15 gap-1">
+        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-1">
             <img src="{{asset('store/new/white-clerax.svg')}}" width="20%" alt="img">
 
             <div class=" text-white w-sm-100 text-center d-flex flex-row justify-content-center align-items-center gap-1">
