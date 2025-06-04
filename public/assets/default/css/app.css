@@ -7456,7 +7456,7 @@ a.bg-primary:hover,
 a.bg-primary:focus,
 button.bg-primary:hover,
 button.bg-primary:focus {
-    background-color: #2aba5e !important;
+    background-color: var(--cleraxprimary) !important;
 }
 
 .bg-secondary {
@@ -18948,7 +18948,7 @@ p {
 .cart-banner {
     width: 100%;
     padding: 100px 0;
-    background-color: var(--secondary);
+    background-color: var(--cleraxprimary);
 }
 .cart-banner .payment-hint {
     margin-top: 30px;
@@ -20765,7 +20765,7 @@ p {
 }
 
 .bg-primary {
-    background-color: var(--primary) !important;
+    background-color: var(--cleraxprimary) !important;
 }
 
 .text-primary {

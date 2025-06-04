@@ -42,12 +42,12 @@
         </div>
 
         <figcaption class="webinar-card-body d-flex flex-column justify-content-between">
-            <!-- <div class="user-inline-avatar d-flex align-items-center">
+            {{-- <div class="user-inline-avatar d-flex align-items-center">
                 <div class="avatar bg-gray200">
                     <img src="{{ $webinar->teacher->getAvatar() }}" class="img-cover" alt="{{ $webinar->teacher->full_name }}">
                 </div>
                 <a href="{{ $webinar->teacher->getProfileUrl() }}" target="_blank" class="user-name ml-5 font-14">{{ $webinar->teacher->full_name }}</a>
-            </div> -->
+            </div>  --}}
             <div class="d-flex flex-column justify-content-between">
                 @php
                     $creator = $webinar->creator ?? null;
@@ -71,11 +71,11 @@
                         </h3>
                     </a>
                 </div>
-                @if (!empty($webinar->category))
+                {{-- @if (!empty($webinar->category))
                     <span class="d-block font-14">{{ trans('public.in') }} <a
                             href="{{ $webinar->category->getUrl() }}" target="_blank"
                             class="text-decoration-underline">{{ $webinar->category->title }}</a></span>
-                @endif
+                @endif --}}
                 {{-- <p class="text-wrap w-100 text-break">{{ strip_tags($webinar->description) }}</p> --}}
 
                 <!-- @include(getTemplate() . '.includes.webinar.rate', ['rate' => $webinar->getRate()]) -->

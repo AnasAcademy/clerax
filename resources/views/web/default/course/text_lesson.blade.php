@@ -25,11 +25,11 @@
             <div class="col-12 col-lg-8">
                 <div class="post-show mt-30">
 
-                    @if(!empty($textLesson->image))
+                    {{-- @if(!empty($textLesson->image))
                         <div class="post-img pb-30">
                             <img src="{{ url($textLesson->image) }}" alt="{{ $textLesson->title }}"/>
                         </div>
-                    @endif
+                    @endif --}}
 
                     {!! nl2br($textLesson->content) !!}
                 </div>
@@ -66,7 +66,7 @@
                     <div class="teacher-avatar mt-5">
                         <img src="{{ $course->teacher->getAvatar(100) }}" class="img-cover" alt="{{ $course->teacher->full_name }}">
                     </div>
-                    <h3 class="mt-10 font-20 font-weight-bold text-secondary">{{ $course->teacher->full_name }}</h3>
+                    <h3 class="mt-10 font-20 font-weight-bold text-orange">{{ $course->teacher->full_name }}</h3>
                     <span class="mt-5 font-weight-500 text-gray">{{ trans('product.product_designer') }}</span>
 
                     @include('web.default.includes.webinar.rate',['rate' => $course->teacher->rates()])

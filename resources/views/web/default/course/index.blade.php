@@ -588,7 +588,7 @@
                             {{ $organization->bio ?? 'description' }}
                         </span>
 
-                        <a type="submit" class="btn new-btn rounded-pill mt-20 py-10" href="">
+                        <a type="submit" class="btn new-btn rounded-pill mt-20 py-10" href="{{ $organization->getProfileUrl() }}">
                             تعرف على الشركة
                         </a>
                     </div>

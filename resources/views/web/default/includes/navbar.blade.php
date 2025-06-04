@@ -277,7 +277,7 @@ $array = ['get_login','get_register','get_forget_password','get_reset_password']
                     </a>
                     <a href="https://lxera.net" target="_blank" rel="noopener"
                         class="d-flex flex-row-reverse align-items-center justify-content-end w-100 mt-2">
-                        Powered by
+                         by
                         <img src="{{ asset('store/new/lxera-black.png') }}" class="mr-5" width="20%" alt="site logo">
                     </a>
                 </div>
